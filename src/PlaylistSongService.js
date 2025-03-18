@@ -28,9 +28,11 @@ class PlaylistSongService {
     }));
 
     return {
-      id: playlist.id,
-      name: playlist.name,
-      songs: playlistSongs,
+      playlist: {
+        id: playlist.id,
+        name: playlist.name,
+        songs: playlistSongs,
+      },
     };
   }
 }
