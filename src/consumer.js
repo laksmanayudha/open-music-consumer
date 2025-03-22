@@ -13,11 +13,11 @@ const init = async () => {
 
   const connection = await amqp.connect(config.rabbitMq.server);
   const channel = await connection.createChannel();
-  await channel.assertQueue('export:playlist', {
+  await channel.assertQueue(config.rabbitMq.queues.exportPlaylist, {
     durable: true,
   });
 
-  channel.consume('export:playlist', listener.listen, { noAck: true });
+  channel.consume(config.rabbitMq.queues.exportPlaylist, listener.listen, { noAck: true });
 };
 
 init();

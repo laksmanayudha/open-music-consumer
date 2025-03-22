@@ -16,6 +16,9 @@ const config = {
   },
   rabbitMq: {
     server: process.env.RABBITMQ_SERVER,
+    queues: {
+      exportPlaylist: 'export:playlist',
+    },
   },
 };
 
